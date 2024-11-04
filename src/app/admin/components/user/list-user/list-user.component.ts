@@ -3,7 +3,7 @@ import { User } from '../../../interfaces/user';
 import { UserService } from '../../../services/user.service';
 import { CommonModule, NgForOf } from '@angular/common';
 import { RouterLink } from '@angular/router';
-
+import { NotificationService } from '../../../services/notification.service';
 @Component({
   selector: 'app-users',
   standalone: true,
@@ -16,6 +16,7 @@ export class ListUserComponent {
 
   constructor(
     private userService: UserService,
+    private notificationService: NotificationService,  // injectar el servicio de notificaciones
   ) {
     this.getUsers();
   }
@@ -37,6 +38,7 @@ export class ListUserComponent {
     if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
       this.userService.deleteUser(id).subscribe({
         next: () => {
+          
           alert('Usuario eliminado');
           this.getUsers(); 
         },

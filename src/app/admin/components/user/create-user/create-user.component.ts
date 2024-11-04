@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../../interfaces/user';
 import { UserService } from '../../../services/user.service';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
   selector: 'app-create-user',
@@ -20,7 +21,8 @@ export class CreateUserComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +38,8 @@ export class CreateUserComponent implements OnInit {
   }
 
   createUser(): void {
+   
+
     if (this.createForm.valid) {
       const userData: User = {
         id_usuario: 0, 
@@ -46,6 +50,8 @@ export class CreateUserComponent implements OnInit {
 
       this.userService.createUser(userData).subscribe({
         next: () => {
+          this.notificationService.succes('Usuario creadeichon')
+          console.log('R');
           alert('Usuario creado correctamente');
           this.router.navigate(['/admin/user/list']);
         },
