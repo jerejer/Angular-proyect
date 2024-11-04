@@ -21,6 +21,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -39,7 +40,8 @@ export class EditUserComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -90,8 +92,8 @@ export class EditUserComponent implements OnInit {
 
       this.userService.updateUser( this.userId,userData,).subscribe({
         next: () => {
-          
-         alert('Actualizado correctamente');
+          this.notificationService.aviseichon('El usuario, ha sido actualizado correctamente');
+        //  alert('Actualizado correctamente');
           this.router.navigate(['/admin/user/list']);
         },
         error: (err) => {

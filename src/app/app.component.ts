@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { MessageFlashComponent } from './shared/components/message-flash/message-flash.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,               // Indica que el componente es standalone
-  imports: [RouterModule, RouterOutlet],         // Importa RouterModule para poder usar <router-outlet>
-  template: `<router-outlet></router-outlet>`,
+  standalone: true,
+  imports: [RouterModule, RouterOutlet, MessageFlashComponent], // Incluye MessageFlashComponent
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {

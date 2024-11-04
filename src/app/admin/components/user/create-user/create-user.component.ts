@@ -51,17 +51,17 @@ export class CreateUserComponent implements OnInit {
       this.userService.createUser(userData).subscribe({
         next: () => {
           this.notificationService.succes('Usuario creadeichon')
-          console.log('R');
-          alert('Usuario creado correctamente');
+          // console.log('R');
+          // alert('Usuario creado correctamente');
           this.router.navigate(['/admin/user/list']);
         },
         error: (err) => {
           console.error('Error al crear el usuario:', err);
-          alert('Hubo un error al crear el usuario');
+          console.log('Hubo un error al crear el usuario');
         }
       });
     } else {
-      alert('Por favor, completa todos los campos correctamente');
+      console.log('Por favor, completa todos los campos correctamente');
     }
   }
 }

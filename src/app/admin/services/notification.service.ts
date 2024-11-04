@@ -36,7 +36,7 @@ export class NotificationService {
     this.mostreichon({ titulo: msg, tipo: 'danger',
        show: true, 
        delay:delay,
-       class:'alert-info'});
+       class:'alert-danger'});
   }
 
   aviseichon(msg: string, delay?: number){
@@ -44,7 +44,7 @@ export class NotificationService {
       tipo: 'info', 
       show: true, 
       delay:delay,
-      class:'alert-info' });
+      class:'alert-warning' });
   }
 
   // succeichon(msg: string, delay?: number){

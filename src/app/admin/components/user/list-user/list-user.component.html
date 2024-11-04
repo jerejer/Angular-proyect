@@ -23,10 +23,10 @@
     <tbody>
       <tr *ngFor="let user of User">
         <td>{{ user.id_usuario }}</td>
-        <td>{{ user.nombre }}</td>
+        <td>{{ user.nombre | uppercase }}</td>
         <td>{{ user.apellido }}</td>
         <td>{{ user.cedula }}</td>
-        <td>{{ user.correo }}</td>
+        <td>{{ user.correo | uppercase }}</td>
         <td>{{ user.estado ? 'Activo' : 'Inactivo' }}</td>
         <td>
           <button

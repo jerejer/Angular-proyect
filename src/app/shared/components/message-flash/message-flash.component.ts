@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { panotificar } from './message-flash';
+import { notificacion } from './message-flash';
 import { NotificationService } from '../../../admin/services/notification.service';
 import { NgClass, NgIf } from '@angular/common';
 
@@ -11,7 +11,7 @@ import { NgClass, NgIf } from '@angular/common';
   styleUrl: './message-flash.component.css'
 })
 export class MessageFlashComponent implements OnInit {
-    msg: panotificar = {
+    msg: notificacion = {
     titulo: '',
     tipo: "danger",
     show: false,

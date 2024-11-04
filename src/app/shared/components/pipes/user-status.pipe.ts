@@ -1,12 +1,10 @@
-// shared/pipes/user-status.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
-
 @Pipe({
-  name: 'userStatus',
-  standalone: true,  // Esto es importante para que el pipe sea usado en componentes standalone
+  name: 'uppercase',
+  standalone: true
 })
-export class UserStatusPipe implements PipeTransform {
-  transform(value: boolean): string {
-    return value ? 'Activo' : 'Inactivo';
+export class UppercasePipe implements PipeTransform {
+  transform(value: string): string {
+    return value ? value.toUpperCase() : '';
   }
 }

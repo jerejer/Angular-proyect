@@ -4,10 +4,11 @@ import { UserService } from '../../../services/user.service';
 import { CommonModule, NgForOf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NotificationService } from '../../../services/notification.service';
+import { UppercasePipe } from '../../../../shared/components/pipes/user-status.pipe';
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [NgForOf, RouterLink, CommonModule],
+  imports: [NgForOf, RouterLink, CommonModule, UppercasePipe],
   templateUrl: './list-user.component.html',
   styleUrls: ['./list-user.component.scss'] 
 })
@@ -38,8 +39,8 @@ export class ListUserComponent {
     if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
       this.userService.deleteUser(id).subscribe({
         next: () => {
-          
-          alert('Usuario eliminado');
+          this.notificationService.peligreichon('Usuario eliminado')
+          // alert('Usuario eliminado');
           this.getUsers(); 
         },
         error: (error) => {
